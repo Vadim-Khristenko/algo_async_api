@@ -24,13 +24,13 @@ pip install git+https://github.com/Vadim-Khristenko/algo_async_api
 
 ```python
 import asyncio
-import algo_async_api as api
+from algo_async_api.algo_api import AsyncSession as api
 
 login = "Ваш Логин"
 password = "Ваш Пароль"
 
 async def main():
-    session = await api.AsyncSession.create(login, password)
+    session = await api.create(login, password)
     check = await session.my_profile()
     print(check.first_name)
     print(check.last_name)
