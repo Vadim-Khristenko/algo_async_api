@@ -12,3 +12,7 @@
 ```bash
 pip install git+https://github.com/Vadim-Khristenko/algo_api_async
 ```
+
+## Лицензия
+
+Данная Библиотека Лицензирована согласно [Лицензии MIT](LICENSE)
