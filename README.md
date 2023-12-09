@@ -13,7 +13,7 @@
 Вы можете устновить библиотеку при помощи `pip`:
 
 ```bash
-pip install git+https://github.com/Vadim-Khristenko/algo_api_async
+pip install git+https://github.com/Vadim-Khristenko/algo_async_api
 ```
 
 ## Лицензия
@@ -25,7 +25,7 @@ pip install git+https://github.com/Vadim-Khristenko/algo_api_async
 ### Установите Библиотеку при помощи
 
 ```bash
-pip install git+https://github.com/Vadim-Khristenko/algo_api_async
+pip install git+https://github.com/Vadim-Khristenko/algo_async_api
 ```
 
 ### Войдите в Алгоритмику
