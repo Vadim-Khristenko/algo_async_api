@@ -22,6 +22,21 @@ pip install git+https://github.com/Vadim-Khristenko/algo_async_api
 
 ## Быстрое начало
 
+```python
+import asyncio
+import algo_async_api as api
+
+async def main():
+    session = await api.AsyncSession.create(login, password)
+    check = await session.my_profile()
+    print(check.first_name)
+    print(check.last_name)
+    await session.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
 ### Установите Библиотеку при помощи
 
 ```bash

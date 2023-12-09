@@ -4,27 +4,34 @@ from .algo_classes import *
 
 class AsyncSession:
     # Управление Сессией
-    async def login(self, login:str, password:str):
+    def __init__(self, login:str, password:str):
         """
         ## Входит в ваш Аккаунт на Алгоритмике.
         - Если логин или пароль неверен вернёт ошибку.
         - Если вы уже вошли, то вернёт ошибку.
         """
-        self.session = None
-        self.id = None
         self.login_name = login
         self.password = password
-        await self.login_algo(login_name=self.login_name, password=self.password)
-    
-    async def login_algo(self, login_name, password):
+        self.session = None
+        self.id = None
+
+    @staticmethod
+    async def create(login, password):
+        """
+        Статический метод для создания экземпляра AsyncSession.
+        """
+        instance = AsyncSession(login, password)
+        await instance.login_algo()
+        return instance
+
+    async def login_algo(self):
         if self.session is not None:
-            raise AsyncAlreadyLoggedIn('Вы уже вошли в Систему! |You are already logged in!')
-
+            raise AsyncAlreadyLoggedIn('Вы уже вошли в Систему! | You are already logged in!')
+        
         self.session = aiohttp.ClientSession()
-
         async with self.session.post('https://learn.algoritmika.org/s/auth/api/e/student/auth', data={
-            'login': login_name,
-            'password': password
+            'login': self.login_name,
+            'password': self.password
         }) as res:
             if res.status == 200:
                 item = await res.json()
@@ -35,9 +42,9 @@ class AsyncSession:
                 raise AsyncUnknownException(await res.json())
 
     async def close(self):
-        '''
-        ## Закрывает сессию для активации Сессии: используйте login()
-        '''
+        """
+        Закрытие сессии.
+        """
         if self.session is not None:
             await self.session.close()
             self.session = None
@@ -45,7 +52,7 @@ class AsyncSession:
 
     # Технические Хендлеры
 
-    async def fetch(self, method, *args, **kwargs):
+    async def fetch(self, method, *args, **kwargs): # Временно не работает.
         if self.session is not None:
             async with method(*args, **kwargs) as res:
                 if res.status == 200:
@@ -56,13 +63,44 @@ class AsyncSession:
             raise AsyncSessionClosed('Сессия закрыта, используйте метод login() для входа | Session closed, use login() method to login')
 
     async def post(self, *args, **kwargs):
-        return await self.fetch(method=self.session.post, *args, **kwargs)
+        """
+        Выполняет POST-запрос.
+        """
+        if self.session is not None:
+            async with self.session.post(*args, **kwargs) as res:
+                if res.status == 200:
+                    return await res.json()
+                else:
+                    raise AsyncUnknownException(await res.json())
+        else:
+            raise AsyncSessionClosed('Сессия закрыта, используйте метод login() для входа | Session closed, use login() method to login')
 
     async def get(self, *args, **kwargs):
-        return await self.fetch(method=self.session.get, *args, **kwargs)
+        """
+        Выполняет GET-запрос.
+        """
+        if self.session is not None:
+            async with self.session.get(*args, **kwargs) as res:
+                if res.status == 200:
+                    return await res.json()
+                else:
+                    raise AsyncUnknownException(await res.json())
+        else:
+            raise AsyncSessionClosed('Сессия закрыта, используйте метод login() для входа | Session closed, use login() method to login')
 
     async def delete(self, *args, **kwargs):
-        return await self.fetch(method=self.session.delete, *args, **kwargs)
+        """
+        Выполняет DELETE-запрос.
+        """
+        if self.session is not None:
+            async with self.session.delete(*args, **kwargs) as res:
+                if res.status == 200:
+                    return await res.json()
+                else:
+                    raise AsyncUnknownException(await res.json())
+        else:
+            raise AsyncSessionClosed('Сессия закрыта, используйте метод login() для входа | Session closed, use login() method to login')
+
 
     # Профиль Пользователя.
 
