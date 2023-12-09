@@ -26,6 +26,9 @@ pip install git+https://github.com/Vadim-Khristenko/algo_async_api
 import asyncio
 import algo_async_api as api
 
+login = "Ваш Логин"
+password = "Ваш Пароль"
+
 async def main():
     session = await api.AsyncSession.create(login, password)
     check = await session.my_profile()
@@ -41,17 +44,6 @@ if __name__ == "__main__":
 
 ```bash
 pip install git+https://github.com/Vadim-Khristenko/algo_async_api
-```
-
-### Войдите в Алгоритмику
-
-```python
-import algo_async_api as api
-login = "Ваш Логин"
-password = "Ваш Пароль"
-
-user = api.AsyncSession.login(login=login, password=password)
-
 ```
 
 ## Документация
