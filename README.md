@@ -10,5 +10,5 @@
 Вы можете устновить библиотеку при помощи `pip`:
 
 ```bash
-pip install git+https://github.com/
+pip install git+https://github.com/Vadim-Khristenko/algo_api_async
 ```
