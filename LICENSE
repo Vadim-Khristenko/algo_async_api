@@ -1,0 +1,27 @@
+MIT License (Modified)
+Copyright (c) 2023 Vadim Khristenko
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+**Author - the creator of the original code, Vadim Khristenko, is to be credited when using, copying, or distributing the code.**
+**Editors - individuals who have made changes to the code are required to explicitly acknowledge their contributions and add their names to the list of editors. Editors are responsible for their changes and cannot claim authorship of the original code.**
+**Copying and modifying the code is allowed only after obtaining written permission from the Author.**
+**Publishing the code in an open-access manner is permitted only after the Author's approval.**
+**When publishing a project, making changes, or copying the code, it is mandatory to inform the Author and provide their name and contact information.**
+**The license may be subject to revision, and if such revision occurs, it will be notified in the README.txt file.**
+
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
