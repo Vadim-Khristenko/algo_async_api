@@ -19,3 +19,39 @@ pip install git+https://github.com/Vadim-Khristenko/algo_api_async
 ## Лицензия
 
 Данная Библиотека Лицензирована согласно [Лицензии MIT](LICENSE)
+
+## Быстрое начало
+
+### Установите Библиотеку при помощи
+
+```bash
+pip install git+https://github.com/Vadim-Khristenko/algo_api_async
+```
+
+### Войдите в Алгоритмику
+
+```python
+import algo_async_api as api
+login = "Ваш Логин"
+password = "Ваш Пароль"
+
+user = api.AsyncSession.login(login=login, password=password)
+
+```
+
+## Документация
+
+Здесь вы можете найти Поддробную документацию того, как работает бибилотека. [Ссылка на Документацию](docs/Documentation.md)
+
+## Что Сделано?
+
+- [x] Пользователи
+- [x] Проекты
+- [x] Изменение Проектов
+- [x] Тренды
+- [x] Комментарии и Реакции в Зале Славы
+
+## Что планируется сделать?
+
+- [ ] Создание Проектов класса Картинки
+- [ ] Изменение Профиля
