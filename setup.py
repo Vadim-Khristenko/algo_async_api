@@ -8,5 +8,9 @@ setup(
     author='VOLT_SYNAPSE, moontr3, justdont0',
     packages=find_packages(),
     install_requires=['aiohttp'],
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License"
+    ],
     zip_safe=False
 )
