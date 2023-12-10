@@ -6,9 +6,8 @@ class AsyncSession:
     # Управление Сессией
     def __init__(self, login:str, password:str):
         """
-        ## Входит в ваш Аккаунт на Алгоритмике.
-        - Если логин или пароль неверен вернёт ошибку.
-        - Если вы уже вошли, то вернёт ошибку.
+        ## Внимание, если вы пытаетесь Использовать Данный метод для входа, то вы ошибаетесь!
+        - Для входа нужно использовать `create(login, password)`
         """
         self.login_name = login
         self.password = password
@@ -18,7 +17,7 @@ class AsyncSession:
     @staticmethod
     async def create(login, password):
         """
-        Статический метод для создания экземпляра AsyncSession.
+        ## Статический метод для создания экземпляра AsyncSession.
         """
         instance = AsyncSession(login, password)
         await instance.login_algo()
@@ -43,7 +42,8 @@ class AsyncSession:
 
     async def close(self):
         """
-        Закрытие сессии.
+        ## Закрытие сессии. 
+        - Для повторного открытия Используйте `create(login, password)`
         """
         if self.session is not None:
             await self.session.close()
@@ -64,7 +64,7 @@ class AsyncSession:
 
     async def post(self, *args, **kwargs):
         """
-        Выполняет POST-запрос.
+        ## Выполняет POST-запрос.
         """
         if self.session is not None:
             async with self.session.post(*args, **kwargs) as res:
@@ -77,7 +77,7 @@ class AsyncSession:
 
     async def get(self, *args, **kwargs):
         """
-        Выполняет GET-запрос.
+        ## Выполняет GET-запрос.
         """
         if self.session is not None:
             async with self.session.get(*args, **kwargs) as res:
@@ -90,7 +90,7 @@ class AsyncSession:
 
     async def delete(self, *args, **kwargs):
         """
-        Выполняет DELETE-запрос.
+        ## Выполняет DELETE-запрос.
         """
         if self.session is not None:
             async with self.session.delete(*args, **kwargs) as res:
@@ -107,6 +107,7 @@ class AsyncSession:
     async def my_profile(self):
         '''
         ## Возвращает информацию о Аккаунте с которого вы вошли.
+        - Если вы не Вошли в Аккаунт вернёт ошибку.
         '''
         data = await self.get('https://learn.algoritmika.org/api/v1/profile?expand=branch,settings,locations,permissions,avatar,referral,course')
         return SelfProfile(data['data'])
@@ -131,6 +132,7 @@ class AsyncSession:
     async def my_projects(self, sort=SORT_LATEST):
         '''
         ## Возвращает все Проекты Пользователя.
+        - Если вы не Вошли в Аккаунт вернёт ошибку.
         '''
         data = await self.get(
             f'https://learn.algoritmika.org/api/v1/projects?\
