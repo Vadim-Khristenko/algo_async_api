@@ -48,7 +48,7 @@ pip install git+https://github.com/Vadim-Khristenko/algo_async_api
 
 ## Документация
 
-Здесь вы можете найти Поддробную документацию того, как работает бибилотека. [Ссылка на Документацию](docs/Documentation.md)
+Здесь вы можете найти Поддробную документацию того, как работает бибилотека. [Ссылка на Документацию]([docs/Documentation.md](https://github.com/Vadim-Khristenko/algo_async_api/wiki/RU-Documentation))
 
 ## Что Сделано?
 
